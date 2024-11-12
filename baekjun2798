@@ -1,0 +1,24 @@
+#baekjun 2798
+# 갯수와 최댓값 입력
+# 갯수만큼의 카드를 받음
+# 각 수별로 3개뽑고/ 합을 다 구하고 /M이하의 값중 가장 뒤에있는 값
+# 배열을 굳이 쓸필요가 있을까? ㄴㄴ 변수하나 만들어서 저장해
+N,M=map(int,input().split())
+C=list(map(int,input().split()))
+S=[]
+Y=[]
+#result=0
+for i in range(N):#answer: N개의 수에서 3개를 뽑아 더한 모든경우
+    #인덱스를 쓰면 뒷값이 계산이 안됨
+    #3중 for문을 이용하면 모든경우의 수를 더할 수 있음
+    for j in range(i+1,N):
+        for k in range(j+1,N):
+            S.append(C[i]+C[j]+C[k])
+            #if C[i]+C[j]+C[k]<=M:
+                #result=max(result, C[i]+C[j]+C[k])
+#print(result)
+
+for i in S:
+    if i<=M:
+        Y.append(i)
+print(max(Y))
