@@ -1,0 +1,26 @@
+N=int(input())#갯수입력
+M=[0]*N#갯수만큼의 단어저장 배열생성
+for i in range(N):#배열에 단어추가
+    M[i]=input()
+M=set(M)
+M=list(M)
+#이제 단어들을 정렬해야하는데 조건이있어
+#1.오름차순
+#2. 길이가 같으면 사전순/ 즉, max를 통해서 비교
+#3. 중복된단어는 하나만남기고 제거/ set함수 사용
+#정렬 알고리즘
+#for문으로 정렬하는도중 if 문을 통해서 max쓰면 되겠다. 마지막에 set
+# for i in range(N-1):
+#     for j in range(N-i-1):
+#         if len(M[j])>len(M[j+1]):#오름차순 정렬
+#             M[j],M[j+1]=M[j+1],M[j]
+#         if len(M[j])==len(M[j+1]):#같은 길이일때 사전값
+#             mx=max(M[j],M[j+1])
+#             mi=min(M[j],M[j+1])
+#             M[j],M[j+1]=mi,mx
+# print(M)
+M.sort()
+M.sort(key=len)#len을 기준으로 sort
+
+for i in M:
+    print(i)
